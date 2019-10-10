@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "name": "go-zeit",
+    "builds": [
+      { "src": "api/main.go", "use": "@now/go" }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "api/index.go" }
+    ]
+  }
