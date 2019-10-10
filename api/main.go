@@ -15,7 +15,9 @@ func ShowNama(w http.ResponseWriter, r *http.Request) {
 func Handler(w http.ResponseWriter, r *http.Request) {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/hello", ShowNama).Methods(http.MethodGet)
+	subrouter := router.PathPrefix("/api").SubRouter()
+
+	subrouter.HandleFunc("/hello", ShowNama).Methods(http.MethodGet)
 
 	router.ServeHTTP(w, r)
 }
